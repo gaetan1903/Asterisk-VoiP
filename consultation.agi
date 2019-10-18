@@ -1,0 +1,12 @@
+#!/usr/bin/php -q 
+<?php
+require('connect.php');
+$agi = new AGI();
+
+$val = $agi->request['agi_callerid'];
+$query = new Query_bdd();
+$solde = $query->consolde($val);
+
+$agi->answer();
+$agi->set_variable('LOOK', 'Votre solde est de:' .$solde. ' Ariary');
+?>

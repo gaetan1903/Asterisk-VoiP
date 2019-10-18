@@ -1,0 +1,28 @@
+#!/usr/bin/php -q 
+<?php 
+require('connect.php');
+$agi = new AGI();
+
+$num_exp = $agi->request['agi_callerid'];
+$num_dest = $agi->get_variable('Dest', true);
+$montant = $agi->get_variable('Montant', true);
+
+$agi->answer();
+
+$query = new Querry_bdd();
+$solde_exp  = $query->consolde($num_exp);
+
+if (intval($solde_exp)>=intval($montant)){
+	$query->moins($num_exp, $montant);
+	$query->plus($num_dest, $montant);
+	$query->transaction($num_exp, $num_dest, $montant);
+	$newsolde = $query->consolde($num_exp);
+
+	$result = 'Transaction reussi, votre nouveau solde est de ' .$newsolde. 'Ariar';
+}
+else{
+	$result = "Votre solde est insuffisant pour ce transaction";
+}
+
+$agi->set_variable('VAR', $result); 
+?>
