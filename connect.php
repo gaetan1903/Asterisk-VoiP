@@ -20,13 +20,15 @@ class Query_bdd extends connect_bdd{
 
 	public function transaction($idexp, $iddest, $montant){
         	$bdd = $this->dbconnect();
-		$bdd->query("INSERT INTO Transactions(Daty, Num_Exp, Num_Dest, Somme) values( NOW(), $idexp, $iddest, $montant)");
+		$res = $bdd->prepare("INSERT INTO Transactions(Daty, Num_Exp, Num_Dest, Somme) values( NOW(), ?, ?, ?)");
+		$res->execute(array($idexp, $iddest, $montant));
         }
 	
 	public function isUser($num){
         	$bdd = $this->dbconnect();
-		$res = $bdd->query("SELECT 1 FROM Utilisateurs WHERE NUmero = '$num' ");
-		if (rowCount($res)==1){
+		$res = $bdd->prepare("SELECT 1 FROM Utilisateurs WHERE Numero = ? ");
+		$res->execute(array($num));
+		if ($res->rowCount()==1){
 			return true ;
 		}
 		return false;
@@ -35,14 +37,16 @@ class Query_bdd extends connect_bdd{
 
 	public function moins($idexp, $montant){
                 $bdd = $this->dbconnect();
-                $bdd->query("UPDATE Utilisateurs SET Solde = Solde - $montant WHERE Numero = $idexp");
+		$res = $bdd->prepare("UPDATE Utilisateurs SET Solde = (Solde - ?)  WHERE Numero = ?");
+		$res->execute(array($montant, $idexp));
         }
 
 	public function plus($iddest, $montant){
                 $bdd = $this->dbconnect();
-                $bdd->query("UPDATE Utilisateurs SET Solde = Solde + $montant WHERE Numero = $iddest");
+		$res = $bdd->prepare("UPDATE Utilisateurs SET Solde = (Solde + ?) WHERE Numero = ?");
+		$res->execute(array($montant, $iddest));
         }
 }
 $query = new Query_bdd();
-echo $query->isUser(5000);
+$query->transaction(5001, 5002, 15000);
 ?>
