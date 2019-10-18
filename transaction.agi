@@ -1,5 +1,7 @@
 #!/usr/bin/php -q 
-<?php 
+<?php
+
+$result = 'Debogage';
 require('connect.php');
 $agi = new AGI();
 
@@ -9,7 +11,7 @@ $montant = $agi->get_variable('Montant', true);
 
 $agi->answer();
 
-$query = new Querry_bdd();
+$query = new Query_bdd();
 $solde_exp  = $query->consolde($num_exp);
 
 if (intval($solde_exp)>=intval($montant)){
