@@ -8,5 +8,5 @@ $query = new Query_bdd();
 $solde = $query->consolde($val);
 
 $agi->answer();
-$agi->set_variable('LOOK', 'Votre solde est de:' .$solde. ' Ariary');
+$agi->set_variable('LOOK', 'Votre solde est de:' .$solde. ' Ariar');
 ?>

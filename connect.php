@@ -45,8 +45,16 @@ class Query_bdd extends connect_bdd{
                 $bdd = $this->dbconnect();
 		$res = $bdd->prepare("UPDATE Utilisateurs SET Solde = (Solde + ?) WHERE Numero = ?");
 		$res->execute(array($montant, $iddest));
-        }
+	}
+
+	public function login($num, $pass){
+		$bdd = $this->dbconnect();
+		$res = $bdd->prepare("SELECT 1 FROM Utilisateurs WHERE Numero=? AND Password=?");
+		$res->execute(array($num, $pass));
+		if ($res->rowCount() == 1){
+			return true;	
+		}
+		return false;
+	}
 }
-$query = new Query_bdd();
-$query->transaction(5001, 5002, 15000);
 ?>

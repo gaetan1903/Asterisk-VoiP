@@ -8,23 +8,36 @@ $agi = new AGI();
 $num_exp = $agi->request['agi_callerid'];
 $num_dest = $agi->get_variable('Dest', true);
 $montant = $agi->get_variable('Montant', true);
-
+$password = $agi->get_variable('Password', true);
 $agi->answer();
 
 $query = new Query_bdd();
 $solde_exp  = $query->consolde($num_exp);
+if (intval($montant)>100){
+	if (intval($solde_exp)>=intval($montant)){
+		if ($query->isUser($num_dest) == true){
+			if ($query->login($num_exp, $password)){
+				$query->moins($num_exp, $montant);
+				$query->plus($num_dest, $montant);
+				$query->transaction($num_exp, $num_dest, $montant);
+				$newsolde = $query->consolde($num_exp);
 
-if (intval($solde_exp)>=intval($montant)){
-	$query->moins($num_exp, $montant);
-	$query->plus($num_dest, $montant);
-	$query->transaction($num_exp, $num_dest, $montant);
-	$newsolde = $query->consolde($num_exp);
-
-	$result = 'Transaction reussi, votre nouveau solde est de ' .$newsolde. 'Ariar';
+				$result = 'Transaction réussi, votre nouveau solde est de ' .$newsolde. 'Ariar';
+			}
+			else{
+				$result = 'Votre mot de passe semble incorecte';
+			}	
+		}
+		else{
+			$result = "Le Numero de destination n'existe pas, Veuiller la vérifier";
+		}
+	}	
+	else{
+		$result = "Votre solde est insuffisant pour cette transaction";
+	}
 }
 else{
-	$result = "Votre solde est insuffisant pour ce transaction";
+	$result = "Le montant est trop petite, Le montant minimal est de 100 Ariar";
 }
-
 $agi->set_variable('VAR', $result); 
 ?>
