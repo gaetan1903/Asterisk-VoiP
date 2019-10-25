@@ -135,6 +135,26 @@ Justement, si on utilisait un script de google pour le faire, bon,  de plus goog
  `# wget https://raw.github.com/zaf/asterisk-googletts/master/googletts.agi`
  
  Puis, donner la permission d'execution au script: `chmod +x googletts.agi`
+ 
+ 
+ 
+ 2. ### Codons Maintenant 
+ 
+ Pour la liaison **asterisk** **php**, il y a differents methodes
+   * En utilisant curl et apache 
+   * En utilisant le cdr
+   * ... 
+   
+  Ce que je vais utiliser ici, est de créer un script php, rn faisant appel à la fonction `agi()`
+  
+  > mille milliards de mille sabords, ce quoi encore ça ? agi tu as dis? 
+  
+  Oui, C'est une fonction qui permet de lancer un script, elle est integrer à Asterisk.
+  
+  **exemple**:
+  
+   Pour lancer le googletts, on utilise la fonction agi: ` agi(googletts, "Je susi un test ", fr, any)
+  
        
     
     
