@@ -236,4 +236,25 @@ Bon, les outils sont prêts, la connexion entre php et mysql(mariadb) va se fair
 Chercher sur Internet comment activer votre pdo ( Je n'en parle pas dans ce propos )
 
 
-#### NB: ici, je suppose que vous avez installer via source, donc votre agi-bin se trouve dans */var/lib/asterisk/agi-bin* 
+#### NB: ici, je suppose que vous avez installer via source, donc votre agi-bin se trouve dans */var/lib/asterisk/agi-bin*
+
+
+  cd /var/lib/asterisk/agi-bin
+  
+  touch script1.php
+  
+Voilà, on vient de creer ce fameux *fichier php*  
+
+Maintenant ouvrer le avec votre editeur (nano, vim, gedit, ...) 
+
+Ajouter à la première ligne l'interpreteur qui va lancer ce fichier, on indique donc php 
+
+Comme ceci: `#!/usr/bin/php ` (le chemin ou se trouve php dans le system)
+
+Puis, aux bonnes habitudes de php , ouvrer avec <?php et fermer avec ?>
+
+![Script php vierge](https://github.com/gaetan1903/Asterisk-VoiP/blob/master/data/script1-vierge.png)
+
+
+  
+  
