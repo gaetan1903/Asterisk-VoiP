@@ -66,7 +66,43 @@ C'est un bon debut, bravo :grin: Maintenant passons à la configuration.
 
 
 - ### Ajouter des Utilisateurs
-    * Sauvegarder le fichier /etc/asterisk/users.conf `# cp /etc/asterisk/users.conf /etc/asterisk/users.conf.save` 
+    * Sauvegarder le fichier /etc/asterisk/users.conf 
+       `# cp /etc/asterisk/users.conf /etc/asterisk/users.conf.save` 
     * Puis Ouvrer ce fichier et effacer tous 
     * Puis ajouter comme ceci: <img align="center" src='https://github.com/gaetan1903/Asterisk-VoiP/blob/master/data/users-config.png'>
+    * En modifions bien sur les choses essentielles (context, nom, ...), ajouter tant d'utilisateurs que vous voudriez
+    * Si vous vouliez ajouter beaucoup d'utilisateures, essayer de voir les [templates](https://www.voip-info.org/asterisk-config-template/)
+
+- ### Modifier /etc/asterisk/extensions.conf 
+  * Sauvegarder le fichier  en question, et supprimer tous de dans, Ce sera  plus en ordre comme ça.  
+  * Puis ajouter les lignes suivantes: 
+  
+    ` [gl]
+    ` exten =>  _1XXX,1, Dial(SIP/${EXTEN},20)
+    ` exten =>  _1XXX,2, Hangup() 
+    
+    En gros ces lignes veut dire, que si le numero commençons par 1 suivi de 3 chiifres est composés, appeler le.
+    
+    Si l'appel est terminé, raccrocher. 
+    
+ 
+ - ### Rechager la configuration
+ Vous avez deux methodes de le faire:
+   * Soit en faisant un: `systemctl reload asterisk ` 
+   * Soit en la restartant directe avec : ` systemctl restart asterisk ` 
+   * Soit en tapant sous la console : `# asterisk -cvvvvr ` et puis *reload*
+   
+  - ### Configurer vos applications clients, et faites les testes 
+    A ce niveau , tous doit fonctionner, Pour les applications , je recommande:
+      * ***X-Lite*** pour Windows
+      * ***Jami ou ZoiPPer*** pour Linux
+      * ***ZoiPPer, MizuDroid*** Pour Android 
+      > Eh ô, et pour les I-Phone alors ???           
+       
+       Désolé , ce monde m'est totalement inconnu :smiley: 
+      
+    
+    
+    
+    
     
