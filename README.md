@@ -202,5 +202,19 @@ exemple: `exten 1,1, => agi(script1.php, 5000)`
 Hahaha, Je vois que tu raisonne bien, Bon , si on consultait un peu [la documentation officielle](https://www.voip-info.org/asterisk-agi-php/)
 
 ![fragment de capture dans la documentation](https://github.com/gaetan1903/Asterisk-VoiP/blob/master/data/list_variable.png)
+
+C'est une image que j'ai capturer, il decrit les variables pré-definis dans asterisk. 
+
+Vous pouvez alors mettre un ou plusieurs de ces varibles en parametre à donner à notre script php. 
+
+On va prendre le ***agi_callerid*** `le numero de la personne qui appelle` 
+
+donc notre instructions devient: 
+
+     ;Si l'utilisateur appuis sur 1, y a une consultation de solde.
+    exten => 1,1,agi(script1.php, agi_callerid)
     
     
+Okey, Ne vous réjouissez pas encore, on a pas encore écrit le **script php** 
+> Oh Maman, j'ai peur :anguished: 
+
