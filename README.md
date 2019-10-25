@@ -145,15 +145,21 @@ Justement, si on utilisait un script de google pour le faire, bon,  de plus goog
    * En utilisant le cdr
    * ... 
    
-  Ce que je vais utiliser ici, est de créer un script php, rn faisant appel à la fonction `agi()`
+  Ce que je vais utiliser ici, c'est de lancer un script php, en faisant appel à la fonction `agi()`
   
-  > mille milliards de mille sabords, ce quoi encore ça ? agi tu as dis? 
+  > mille milliards de mille sabords, c'est quoi encore ça ? agi tu as dis? 
   
   Oui, C'est une fonction qui permet de lancer un script, elle est integrer à Asterisk.
   
   **exemple**:
   
-   Pour lancer le googletts, on utilise la fonction agi: ` agi(googletts, "Je susi un test ", fr, any)
+   Pour lancer le googletts, on utilise la fonction agi: ` agi(googletts, "Je susi un test ", fr, any)`
+   
+   
+      " Talk is cheap, Show me the code " 
+                               Linus Torvalds 
+                               
+Okey d'accord, J'arrete de parler! Fallais pas s'enerever 
   
        
     
