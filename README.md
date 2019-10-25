@@ -281,7 +281,19 @@ On va utiliser un module qui s'appelle php-agi.
 
 Il faudra la telecharger : <http://phpagi.sourceforge.net/>
 
+> Hey Monsieur, Je suis en mode console moi, comment voulez vous que je telecharge ça.
 
+Tu vas le telecharger directement via wget, j'ai un lien special pour toi:
+
+`wget https://raw.githubusercontent.com/gaetan1903/Asterisk-VoiP/master/data/phpagi.zip`
+
+SI vous avez aussi des difficultés pour le telecharger, faîtes la ligne de commande precedant.
+
+Heuresement que je l'ai heberger dans mon repertoire github :stuck_out_tongue_closed_eyes:
+
+Maintenant decommpresser le avec `unzip phpagi.zip ` (installer unzip si il ne l'est pas )
+
+Si reussi, un dossier phpagi est dans créer. >> Vous êtes actuellement dans le dossier **agi-bin/**
 
 
 
