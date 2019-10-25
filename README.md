@@ -218,3 +218,22 @@ donc notre instructions devient:
 Okey, Ne vous réjouissez pas encore, on a pas encore écrit le **script php** 
 > Oh Maman, j'ai peur :anguished: 
 
+Oh lala! Je n'ai pas voulu te faire peur, mais ce n'est qu'un script
+
+
+
+- Installer mysql 
+  * Sous linux, on installe la version open source de mysql pour l'avoir: **mariadb** 
+  
+    un `# apt-get install mariadb-server` fera l'affaire je pense 
+    
+-  Installer php 
+     
+     
+     
+Bon, les outils sont prêts, la connexion entre php et mysql(mariadb) va se faire avec la classe PDO 
+
+Chercher sur Internet comment activer votre pdo ( Je n'en parle pas dans ce propos )
+
+
+#### NB: ici, je suppose que vous avez installer via source, donc votre agi-bin se trouve dans */var/lib/asterisk/agi-bin* 
