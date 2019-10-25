@@ -153,7 +153,7 @@ Justement, si on utilisait un script de google pour le faire, bon,  de plus goog
   
   **exemple**:
   
-   Pour lancer le googletts, on utilise la fonction agi: ` agi(googletts, "Je susi un test ", fr, any)`
+   Pour lancer le googletts, on utilise la fonction agi: ` agi(googletts.agi, "Je susi un test ", fr, any)`
    
    
       " Talk is cheap, Show me the code " 
@@ -185,9 +185,22 @@ Voila, les repondeurs interactifs repond , à nous d'entrer notre choix maintena
 
 Donc l'instruction ci-dessous indique que, si on tape sur 1, agi va executer, le script1.php 
 
-> Oui, mais , attend un eminute, c'est que ce script1.php, je me perds là . 
+> Oui, mais , attend une minute, c'est quoi ce script1.php, je me perds là . 
 
 Du calme, on l'as pas encore créer, mais on va le créer bientôt.
-    
+
+> Mais après, comment php va reconnaître qui demande le solde ?  
+
+Oui, bonne question, pour cela on envoie un parametre à php 
+
+Pour envoyer un parametre on le met apres le nom du script suivit du virgule.
+
+exemple: `exten 1,1, => agi(script1.php, 5000)`
+
+> Ah je comprends, Mais c'est trop static ça, et si c'était pas le numero 5000 mais autre? 
+
+Hahaha, Je vois que tu raisonne bien, Bon , si on consultait un peu [la documentation officielle](https://www.voip-info.org/asterisk-agi-php/)
+
+![fragment de capture dans la documentation](https://github.com/gaetan1903/Asterisk-VoiP/blob/master/data/list_variable.png)
     
     
