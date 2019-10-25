@@ -251,9 +251,39 @@ Ajouter à la première ligne l'interpreteur qui va lancer ce fichier, on indiqu
 
 Comme ceci: `#!/usr/bin/php ` (le chemin ou se trouve php dans le system)
 
-Puis, aux bonnes habitudes de php , ouvrer avec <?php et fermer avec ?>
+Puis, aux bonnes habitudes de php , comme : 
 
 ![Script php vierge](https://github.com/gaetan1903/Asterisk-VoiP/blob/master/data/script1-vierge.png)
+
+
+On va d'abord creer une base de donnée 
+
+- Ouvrir mysql avec la commande: `# mysql `
+- Creer une base de donnée: `> CREATE DATABASE asterisk;` Vous pouvez mettre le nom qui vous convient
+- Selecionner cette base de donnée: `USE asterisk;`
+- Creer une table : `CREATE TABLE User (nom Varchar(25), numero int, solde int);`
+- Créer un utilisateur: `CREATE USER 'gaetan'@'localhost' identified by 'password';`
+- Donner privileges: `GRANT ALL PRIVILEGES ON *.* TO 'gaetan'@'localhost';`
+- CONFIRMER: `FLUSH PRIVILEGES;`
+
+A vous d'inserer les données.
+
+Ouvrons Maintenant notre script.php, on vas faire la connexion
+
+`$bdd = new PDO('mysql:host=localhost;dbname=asterisk','gaetan','password')`
+
+- asterisk: le nom de la base de donnée
+- changer à votre propre option. 
+
+Maintenant, il faut recuperer les parametres que la fonction agi dans extension.conf a envoyer.
+
+On va utiliser un module qui s'appelle php-agi.
+
+Il faudra la telecharger : <http://phpagi.sourceforge.net/>
+
+
+
+
 
 
   
