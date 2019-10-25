@@ -310,6 +310,11 @@ Nous obtiendrons alors comme ceci :
 ![Instanciation de la classe AGI](https://github.com/gaetan1903/Asterisk-VoiP/blob/master/data/script1-require.png)
 
 
+Pour recuperer le parametre envoyer, On va utiliser, la proprieté ***request*** de la classe AGI() 
+
+`$callerid = $agi->request['agi_callerid'];` Le parametre que nous avons ecrit dans extensions.conf
+
+
 
 
 
