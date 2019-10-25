@@ -6,4 +6,4 @@
 
 > Quoi? , attends! Tu veux dire que ce truc n'est qu'un devoir? alors pourquoi le publié ici? 
 
->> Oui, On appelle plutôt cela chez nous, à  l'ESTI **un projet**. 
+Oui, On appelle plutôt cela chez nous, à  l'ESTI **un projet**. C'est un projet que beaucoup d'entreprises ont besoin.
