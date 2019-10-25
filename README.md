@@ -100,7 +100,42 @@ C'est un bon debut, bravo :grin: Maintenant passons à la configuration.
       > Eh ô, et pour les I-Phone alors ???           
        
        Désolé , ce monde m'est totalement inconnu :smiley: 
-      
+       
+       A vous de jouer maintenant, tester les appels. :wink:
+       
+       
+       
+## Mise en place d'un Serveur Vocale Interactif
+
+C'est ici que ça devient interessant, On va installer un serveur qui nous fait interagir avec la base de donnée.
+
+> Attend, une seconde, que veux tu dire par une base de donnée? tu parle de mysql, Oracle, et tout ?
+
+Oui, tu as tout vu, On va par exemple faire deux options, consulter notre solde et de pouvoir transferer les soldes.
+
+> Estce que c'est normal si j'ai peur?, ça sent la programmation ce truc quoi :worried:
+
+Non, ce sera simple, crois moi, quand tu auras fini, tu vas te dire, genre seulement ça :wink: :joy:
+
+
+1. ### Installons quelque chose qui va simuler du voix 
+
+Justement, si on utilisait un script de google pour le faire, bon,  de plus google offre cela avec son script fait avec du langage `perl` , de pouvoir transformer du texte facilement en voix, c'est à dire de la lire. 
+
+ D'abord installez ces dependances pourqu'il puisse bien fonctionner 
+ 
+ `# apt-get install perl libwww-perl sox mpg123` 
+ 
+ Puis, Aller dans le dossier de l'AGI BIN
+   * dans ***cd /var/lib/asterisk/agi-bin/*** , Si vous avez installer via source
+   * dans ***cd /usr/share/asterisk/agi-bin/***, Si vous avez installer via `apt-get` 
+   
+ Arriver dans le dossier, telecharger le fichier: 
+ 
+ `# wget https://raw.github.com/zaf/asterisk-googletts/master/googletts.agi`
+ 
+ Puis, donner la permission d'execution au script: `chmod +x googletts.agi`
+       
     
     
     
