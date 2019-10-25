@@ -159,11 +159,35 @@ Justement, si on utilisait un script de google pour le faire, bon,  de plus goog
       " Talk is cheap, Show me the code " 
                                Linus Torvalds 
                                
-Okey d'accord, J'arrete de parler! Fallais pas s'enerever 
+Okey d'accord, J'arrete de parler! Fallais pas s'enerver. :sweat_smile:
+
+Bon, Analysons directe notre extensions.conf alors `Je suppose que vous savez où c'est.`
+
+
+    ;Répondeur asterisk
+    exten => 1000,1,Answer() ; si quelq'un appel repond 
+    ;On met un timeout de 10 secondes pour le choix du destinatire
+    exten => 1000,2,Set(TIMEOUT(response)=10)
+    ;On annonce les différents choix
+    exten => 1000,3,agi(googletts.agi,"Bienvenues chez gaetan1903.github.io",fr,any)
+    exten => 1000,4,agi(googletts.agi,"Pour consultez votre solde tapez 1",fr,any)
+    exten => 1000,5,agi(googletts.agi,"Pour faire une transaction tapez 2",fr,any)
+    ;On attend que l'utilisateur appuis sur une touche
+    exten => 1000,6,WaitExten()
+ 
+ 
+Voila, les repondeurs interactifs repond , à nous d'entrer notre choix maintenant 
+
   
-       
-    
-    
+    ;Si l'utilisateur appuis sur 1, y a une consultation de solde.
+    exten => 1,1,agi(script1.php)
+
+
+Donc l'instruction ci-dessous indique que, si on tape sur 1, agi va executer, le script1.php 
+
+> Oui, mais , attend un eminute, c'est que ce script1.php, je me perds là . 
+
+Du calme, on l'as pas encore créer, mais on va le créer bientôt.
     
     
     
