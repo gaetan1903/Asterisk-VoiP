@@ -270,7 +270,7 @@ A vous d'inserer les données.
 
 Ouvrons Maintenant notre script.php, on vas faire la connexion
 
-`$bdd = new PDO('mysql:host=localhost;dbname=asterisk','gaetan','password')`
+`$bdd = new PDO('mysql:host=localhost;dbname=asterisk','gaetan','password');`
 
 - asterisk: le nom de la base de donnée
 - changer à votre propre option. 
@@ -287,13 +287,28 @@ Tu vas le telecharger directement via wget, j'ai un lien special pour toi:
 
 `wget https://raw.githubusercontent.com/gaetan1903/Asterisk-VoiP/master/data/phpagi.zip`
 
-SI vous avez aussi des difficultés pour le telecharger, faîtes la ligne de commande precedant.
+SI vous avez aussi des difficultés pour le telecharger, faîtes la ligne de commande precedante.
 
 Heuresement que je l'ai heberger dans mon repertoire github :stuck_out_tongue_closed_eyes:
 
 Maintenant decommpresser le avec `unzip phpagi.zip ` (installer unzip si il ne l'est pas )
 
-Si reussi, un dossier phpagi est dans créer. >> Vous êtes actuellement dans le dossier **agi-bin/**
+Si reussi, un dossier phpagi est  créer. > Vous êtes actuellement dans le dossier **agi-bin/**
+
+*Revenons à nos moutons*
+
+Ouvrez maintenant script1.php et importer le agi-php en question 
+
+`require('phpagi/phpagi.php');`  le module se trouve dans le dossier phpagi.
+
+Nous pouvons maintenant instancier la classe AGI,  comme suite: 
+
+`$agi = new AGI();`
+
+Nous obtiendrons alors comme ceci : 
+
+![Instanciation de la classe AGI](https://github.com/gaetan1903/Asterisk-VoiP/blob/master/data/script1-require.png)
+
 
 
 
