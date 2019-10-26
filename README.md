@@ -314,6 +314,56 @@ Pour recuperer le parametre envoyer, On va utiliser, la proprieté ***request***
 
 `$callerid = $agi->request['agi_callerid'];` Le parametre que nous avons ecrit dans extensions.conf
 
+> Hourra! j'ai recuperer dans la variable $callerdid le numero de l'appelant !
+
+Oui, c'est cela, vous pouvez utiliser celle-ci comme indice de rquete de base de donnée 
+
+    $consulter =  $bdd->query( "SELECT solde  FROM Users where numero = '$callerid' ");
+		  $sld = $consulter->fetchall();
+    $solde = $sld[0][0];
+    
+ Voila un petit code php qui va faire la requete du solde et de mettre dans la variable $solde la reponse 
+ 
+ > Calme toi, Je ne comprends pas ce code !! 
+ 
+ Oh Domage , Je ne suis pas prof de php , essaie de trouver par toi même pour ceci.
+ 
+ > Haha, Je plaisantais, Bien sur que je sais faire un requet avec php, On l'a déjà fait avec le projet de Monsieur Nirina.
+ 
+ Donc, voila le solde est maintenant dans la variable $solde. 
+ 
+ > Et comment on fait pour le donner à Asterisk ? 
+ 
+ Il existe une methode de l'objet AGI() qui sert à declarer depuis php une variable dans l'extension.conf
+ 
+ > Vas-y doucement, Je n'arrive pas à suivre
+ >
+ > Et puis c'est quoi objet, methode et tout? 
+ 
+ En gros, une methode c'est un fonction propre à la classe ( notion de la programmation orienté objet ) 
+ 
+ > Tu sais, laisse tomber, c'est complqiuer, et puis on s'en fou de qu'est ce que c'est :grin:
+ 
+ D'accord, on va supposer que c'est juste une fonction dans la classe AGI(), la fonction en question est **set_variable**
+ 
+ Elle prend 2 parametres, le nom de la variable à declarer et puis sa valeur.
+ 
+ > Juste une question, comme tu sais tout ça.
+ 
+ Haha, J'ai fouillé le code source de leur code quoi, tu peux jeter un coup d'oeil [ici](https://github.com/gaetan1903/Asterisk-VoiP/blob/master/phpagi/phpagi.php)
+ 
+ Mais avant de declarer la variable, il faut d'abord appeler la methode `answer` 
+ 
+ On implemente donc le code avec:
+ 
+    $agi->answer();
+    $agi->set_variable('VOLA', $solde);
+    
+  Voila, le tours est joué.
+    
+ 
+ 
+ 
 
 
 
