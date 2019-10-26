@@ -319,7 +319,7 @@ Pour recuperer le parametre envoyer, On va utiliser, la proprieté ***request***
 Oui, c'est cela, vous pouvez utiliser celle-ci comme indice de rquete de base de donnée 
 
     $consulter =  $bdd->query( "SELECT solde  FROM Users where numero = '$callerid' ");
-		  $sld = $consulter->fetchall();
+    $sld = $consulter->fetchall();
     $solde = $sld[0][0];
     
  Voila un petit code php qui va faire la requete du solde et de mettre dans la variable $solde la reponse 
@@ -359,8 +359,31 @@ Oui, c'est cela, vous pouvez utiliser celle-ci comme indice de rquete de base de
     $agi->answer();
     $agi->set_variable('VOLA', $solde);
     
-  Voila, le tours est joué.
+  Voila, le tours est joué. 
+  
+  On a donc declarer une variable *VOLA* qui contient la valeur $solde à l'extensions.conf 
+  
+  ![visualisation du code script1.php](https://github.com/gaetan1903/Asterisk-VoiP/blob/master/data/script1-end.png)
+  
+  
+  Rendez vous Maintenant dans */etc/asterisk/extensions.conf*
+  
+  AJouter le coup de grâce :joy: 
+  
+  Il reste qu'à faire parler googletts 
+  
+    ;Si l'utilisateur appuis sur 1, y a une consultation de solde.
+    exten => 1,1,agi(script1.php, agi_callerid)
+    exten => 1,2,agi(googletts.agi, "Votre solde est ${VOLA} Ariary", fr, any)
     
+ Remarquer que *VOLA* est la variable declaré en php.
+ 
+ Reload asterisk mantenant et test...
+ 
+ 
+ > ### Oh lala, ça  marche, hourra :snowflake: :snowflake: :snowflake:
+ 
+ Super, tu evolue, A toi de continuer la suite...
  
  
  
