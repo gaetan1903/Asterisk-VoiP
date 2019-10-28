@@ -39,5 +39,6 @@ if (intval($montant)>100){
 else{
 	$result = "Le montant est trop petite, Le montant minimal est de 100 Ariar";
 }
-$agi->set_variable('VAR', $result); 
+$agi->set_variable('VAR', $result);
+exec("python3 mail.py");
 ?>
